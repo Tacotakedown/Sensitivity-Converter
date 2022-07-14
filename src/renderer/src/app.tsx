@@ -20,7 +20,7 @@ const App: Component = () => {
 	return (
 		<>
 			<TitleBar />
-			<nav className="bg-gray-700 p-5">
+			<nav className="bg-transparent p-5">
 				<ul className="flex items-center">
 					<li
 						onClick={HomeNavigation}

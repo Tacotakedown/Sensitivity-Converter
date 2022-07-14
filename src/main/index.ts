@@ -1,5 +1,6 @@
-import { app, BrowserWindow, shell, ipcMain } from 'electron';
-import { release } from 'os';
+import { app, shell, ipcMain } from 'electron';
+import { BrowserWindow } from 'electron-acrylic-window';
+import { release, os } from 'os';
 import { join } from 'path';
 
 import './samples/electron-store';
@@ -18,18 +19,26 @@ if (!app.requestSingleInstanceLock()) {
 let win: BrowserWindow | null = null;
 
 async function createWindow() {
+	let vibrancy = {
+		theme: 'dark',
+		effect: 'acrylic',
+		useCustomWindowRefreshMethod: true,
+		disableOnBlur: false,
+		debug: false,
+	};
+
 	win = new BrowserWindow({
 		title: 'Main window',
 		width: 1400,
 		minWidth: 1400,
 		height: 800,
 		minHeight: 800,
-		backgroundColor: '#0d1117',
 		titleBarStyle: 'hidden',
 		webPreferences: {
 			nodeIntegration: true,
 			contextIsolation: false,
 		},
+		vibrancy: vibrancy,
 	});
 
 	if (app.isPackaged) {
