@@ -1,0 +1,9 @@
+.drag {
+	padding: 8px;
+	font-family: sans-serif;
+	font-size: 14px;
+	background-color: transparent;
+	display: flex;
+	justify-content: space-between;
+	-webkit-app-region: drag;
+}

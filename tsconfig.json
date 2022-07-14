@@ -1,26 +1,16 @@
 {
-  "compilerOptions": {
-    "incremental": true,
-    "target": "es2021",
-    "module": "commonjs",
-    "lib": ["dom", "es2021"],
-    "declaration": true,
-    "declarationMap": true,
-    "jsx": "react-jsx",
-    "strict": true,
-    "pretty": true,
-    "sourceMap": true,
-    "baseUrl": "./src",
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "resolveJsonModule": true,
-    "allowJs": true,
-    "outDir": "release/app/dist"
-  },
-  "exclude": ["test", "release/build", "release/app/dist", ".erb/dll"]
+	"extends": "./paths.json",
+	"compilerOptions": {
+		"target": "ESNext",
+		"module": "ESNext",
+		"allowJs": true,
+		"skipLibCheck": true,
+		"skipDefaultLibCheck": true,
+		"esModuleInterop": true,
+		"moduleResolution": "Node",
+		"resolveJsonModule": true,
+		"strict": true,
+		"jsx": "preserve",
+		"jsxImportSource": "solid-js"
+	}
 }
