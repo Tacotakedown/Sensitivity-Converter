@@ -20,7 +20,7 @@ let win: BrowserWindow | null = null;
 
 async function createWindow() {
 	let vibrancy = {
-		theme: 'dark',
+		theme: '#1b0c6699',
 		effect: 'acrylic',
 		useCustomWindowRefreshMethod: true,
 		disableOnBlur: false,
@@ -29,9 +29,9 @@ async function createWindow() {
 
 	win = new BrowserWindow({
 		title: 'Main window',
-		width: 1400,
-		minWidth: 1400,
-		height: 800,
+		maxWidth: 700,
+		minWidth: 700,
+		maxHeight: 800,
 		minHeight: 800,
 		titleBarStyle: 'hidden',
 		webPreferences: {

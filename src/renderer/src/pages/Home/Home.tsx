@@ -1,8 +1,14 @@
-import { Component } from 'solid-js';
+import { Component, createSignal } from 'solid-js';
+import { HexColorInput, HexColorPicker } from 'solid-colorful';
 
 const Home: Component = () => {
-	const greeting = <div className="font-mono text-slate-50">home</div>;
-	return greeting;
+	const [color, setColor] = createSignal('#aabbcc');
+
+	return (
+		<>
+			<div>home</div>
+		</>
+	);
 };
 
 export default Home;

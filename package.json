@@ -8,7 +8,7 @@
 	"license": "GNU 3.0",
 	"main": "dist/main/index.cjs",
 	"scripts": {
-		"dev": "node scripts/watch.mjs",
+		"start": "node scripts/watch.mjs",
 		"build": "npm run typecheck && node scripts/build.mjs && electron-builder --config .electron-builder.config.js",
 		"typecheck": "tsc --noEmit --project src/renderer/tsconfig.json"
 	},
@@ -16,10 +16,17 @@
 		"node": ">=14.17.0"
 	},
 	"dependencies": {
+		"@emotion/react": "^11.9.3",
+		"@emotion/styled": "^11.9.3",
+		"@mui/icons-material": "^5.8.4",
+		"@mui/material": "^5.9.0",
+		"bootstrap-icons": "^1.9.0",
 		"electron-acrylic-window": "^0.5.11",
 		"electron-store": "^8.0.1",
 		"fs-extra": "^10.1.0",
+		"react-color": "^2.19.3",
 		"sass": "^1.53.0",
+		"solid-colorful": "^0.0.2",
 		"three": "^0.142.0",
 		"walkdir": "^0.4.1"
 	},
