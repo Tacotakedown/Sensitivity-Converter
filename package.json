@@ -18,15 +18,17 @@
 	"dependencies": {
 		"@emotion/react": "^11.9.3",
 		"@emotion/styled": "^11.9.3",
+		"axios": "^0.21.0",
 		"bootstrap-icons": "^1.9.0",
+		"cors": "^2.8.5",
 		"electron-acrylic-window": "^0.5.11",
 		"electron-json-storage": "^4.5.0",
 		"electron-store": "^8.0.2",
 		"fs-extra": "^10.1.0",
-		"axios": "^0.21.0",
 		"node-govee-led": "^1.5.1",
 		"sass": "^1.53.0",
 		"solid-colorful": "^0.0.2",
+		"superagent": "^8.0.0",
 		"three": "^0.142.0",
 		"walkdir": "^0.4.1"
 	},
