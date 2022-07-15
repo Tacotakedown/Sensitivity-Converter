@@ -4,7 +4,7 @@
  */
 module.exports = {
 	appId: 'YourAppID',
-	productName: 'YourAppName',
+	productName: 'Grovee light manager',
 	copyright: 'Copyright © 2022 ${author}',
 	asar: true,
 	directories: {

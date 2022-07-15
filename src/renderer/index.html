@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<style>
+			body,
+			html {
+				height: 100%;
+				width: 100%;
+				overflow: hidden;
+			}
+		</style>
 		<meta charset="UTF-8" />
 		<link rel="icon" type="image/svg+xml" href="/src/assets/favicon.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,8 +17,14 @@
 			content="script-src 'self' 'unsafe-inline';"
 		/>
 		<title>Launcher</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+			rel="stylesheet"
+		/>
 	</head>
-	<body>
+	<body style="height: 100% width: 100%">
 		<div id="root"></div>
 		<script type="module" src="/src/main.tsx"></script>
 	</body>

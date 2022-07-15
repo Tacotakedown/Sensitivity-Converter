@@ -1,43 +1,61 @@
-import { Component } from 'solid-js';
+import { Component, createSignal } from 'solid-js';
 import { useLocation, useRoutes, NavLink, useNavigate } from 'solid-app-router';
 import TitleBar from './Common/components/titleBar/titleBar';
 import { routes } from './routes';
+import './app.scss';
 
 const App: Component = () => {
 	const Route = useRoutes(routes);
 	const location = useLocation();
 	const navigate = useNavigate();
+	const [animation, setAnimation] = createSignal(false);
 
-	const ExampleNavigation = () => {
-		navigate('/example', { replace: true });
+	const handleStartAnimation = () => {
+		setAnimation(true);
+		console.log('start animation');
+		setTimeout(() => {
+			setAnimation(false);
+		}, 500);
+		console.log('end animation');
 	};
+
 	const HomeNavigation = () => {
 		navigate('/', { replace: true });
+		handleStartAnimation();
 	};
 	const ColorNavigation = () => {
 		navigate('/colors', { replace: true });
 	};
 	const SettingsNavigation = () => {
+		handleStartAnimation();
 		navigate('/settings', { replace: true });
 	};
+
 	return (
 		<>
 			<TitleBar />
-			<nav className="bg-transparent p-5">
-				<ul className="flex items-center">
-					<li
-						onClick={HomeNavigation}
-						className="rounded-full shadow shadow-button-bg-purple bg-button-bg-purple	 text-slate-50 py-2 px-4  hover:bg-gray-400	 active:bg-gray-500	"
-					>
-						Home
+			<div className="bg-transparent	 absolute h-128 flex justify-between items-center p-5">
+				<ul className=" flex-col z-10  h-full flex justify-between items-beginning	">
+					<li onClick={HomeNavigation}>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="25"
+							height="25"
+							fill="currentColor"
+							class="fill-slate-300 	 ease-in-out duration-300 hover:ease-in-out hover:fill-neutral-400 hover:scale-110	"
+							viewBox="0 0 16 16"
+						>
+							<path
+								fill-rule="evenodd"
+								d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"
+							/>
+							<path
+								fill-rule="evenodd"
+								d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"
+							/>
+						</svg>
 					</li>
 
-					<li
-						onClick={ColorNavigation}
-						className="rounded-full bg-button-bg-purple	 text-slate-50 py-2 px-4  hover:bg-gray-400	 active:bg-gray-500	"
-					>
-						Color Picker
-					</li>
 					<li onClick={SettingsNavigation}>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -51,11 +69,15 @@ const App: Component = () => {
 						</svg>
 					</li>
 				</ul>
-			</nav>
-
-			<main>
-				<Route />
-			</main>
+				<div
+					className={`floater ${
+						location.pathname == '/' ? 'homeActive' : 'settingsActive'
+					} ${animation() ? 'floaterAnimation' : ''}  `}
+				/>
+				<div class="mainContainer bg-button-bg-purple p-5 ml-4		 w-124 shadow-md shadow-button-bg-purple h-128 rounded-md	">
+					<Route />
+				</div>
+			</div>
 		</>
 	);
 };

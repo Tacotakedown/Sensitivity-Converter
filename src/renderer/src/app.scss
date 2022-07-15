@@ -1,0 +1,60 @@
+.floater {
+	background-color: rgba($color: #5c45cc, $alpha: 0.5);
+	position: absolute;
+	width: 60px;
+	height: 40px;
+	left: 0px;
+	top: 668px;
+	border-radius: 10%;
+	transition: ease-in-out 0.5s;
+	box-shadow: 0px 0px 10px rgba($color: #5c45cc, $alpha: 0.3);
+}
+.homeActive {
+	top: 13px;
+	left: 0px;
+	transition: ease-in-out 0.5s;
+}
+.settingsActive {
+	top: 715px;
+	left: 0px;
+	transition: ease-in-out 0.5s;
+}
+.floaterAnimation {
+	animation: move 0.5s;
+}
+@keyframes move {
+	0% {
+		width: 60px;
+	}
+	25% {
+		width: 40px;
+		left: 10px;
+	}
+	50% {
+		border-radius: 100%;
+	}
+	75% {
+		width: 40px;
+		left: 10px;
+	}
+	100% {
+		width: 60px;
+	}
+}
+.mainContainer {
+	background: linear-gradient(
+			127deg,
+			rgba(156, 78, 166, 0.4),
+			rgba(166, 78, 118, 0) 70.71%
+		),
+		linear-gradient(
+			217deg,
+			rgba(42, 30, 229, 0.4),
+			rgba(42, 30, 229, 0) 70.71%
+		),
+		linear-gradient(
+			336deg,
+			rgba(30, 229, 47, 0.4),
+			rgba(88, 166, 78, 0) 70.71%
+		);
+}
