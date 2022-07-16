@@ -3,6 +3,7 @@
 	"compilerOptions": {
 		"target": "ESNext",
 		"module": "ESNext",
+		"forceConsistentCasingInFileNames": true,
 		"allowJs": true,
 		"skipLibCheck": true,
 		"skipDefaultLibCheck": true,
@@ -12,8 +13,12 @@
 		"strict": true,
 		"jsx": "preserve",
 		"jsxImportSource": "solid-js",
-		"typeRoots": ["./types"],
+		"typeRoots": ["@types"],
 		"declaration": true
 	},
-	"include": ["./types/index.ts"]
+	"include": [
+		"@types/global/index.d.ts",
+		"@types/global/index.d.ts",
+		"@types/global/images.d.ts"
+	]
 }
