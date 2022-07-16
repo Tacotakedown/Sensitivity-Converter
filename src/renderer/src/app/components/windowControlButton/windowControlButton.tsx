@@ -9,7 +9,6 @@ const WindowControlButton = (props: any) => {
 	}
 	return (
 		<div
-			style={{ backgroundColor: 'red' }}
 			class={`w-4 h-4 ${propColor} rounded-full ease-in-out hover:scale-110`}
 			onclick={props.onClick}
 		></div>

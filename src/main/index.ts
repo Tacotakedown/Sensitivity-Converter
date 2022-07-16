@@ -40,7 +40,9 @@ async function createWindow() {
 		webPreferences: {
 			nodeIntegration: true,
 			contextIsolation: false,
-		}, //@ts-ignore
+			devTools: false,
+		},
+		//@ts-ignore
 		vibrancy: vibrancy,
 	});
 
@@ -48,7 +50,6 @@ async function createWindow() {
 		win.loadFile(join(__dirname, '../renderer/index.html'));
 		win.setMenuBarVisibility(false);
 	} else {
-		// 🚧 Use ['ENV_NAME'] avoid vite:define plugin
 		const url = `http://${process.env['VITE_DEV_SERVER_HOST']}:${process.env['VITE_DEV_SERVER_PORT']}`;
 
 		win.loadURL(url);
