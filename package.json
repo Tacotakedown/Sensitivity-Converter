@@ -1,10 +1,10 @@
 {
-	"name": "launcher",
-	"productName": "Launcher",
+	"name": "covee-rgb-controller",
+	"productName": "Govee RGB Controller",
 	"private": true,
-	"version": "1.0.0",
-	"description": "simple launcher for msfs aircraft",
-	"author": "Ouroboros Jets, Aero Dynamics, Delta Simulations",
+	"version": "0.0.1",
+	"description": "Simple app for controlling Govee RGB lights",
+	"author": "Cameron Griego",
 	"license": "GNU 3.0",
 	"main": "dist/main/index.cjs",
 	"scripts": {

@@ -1,7 +1,7 @@
 import 'tailwindcss/tailwind.css';
 import { render } from 'solid-js/web';
 import { Router, createIntegration } from 'solid-app-router';
-import App from './app';
+import App from './app/app';
 
 function bindEvent(target: EventTarget, type: string, handler: EventListener) {
 	target.addEventListener(type, handler);

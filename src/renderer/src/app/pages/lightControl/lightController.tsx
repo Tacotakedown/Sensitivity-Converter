@@ -1,7 +1,7 @@
-import { Component, createSignal } from 'solid-js';
+import { createSignal } from 'solid-js';
 import { HexColorInput, HexColorPicker, RgbColorPicker } from 'solid-colorful';
 
-export const Color: Component = () => {
+const LightController = () => {
 	const [color, setColor] = createSignal('#aabbcc');
 
 	return (
@@ -11,3 +11,4 @@ export const Color: Component = () => {
 		</>
 	);
 };
+export default LightController;

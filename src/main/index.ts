@@ -30,7 +30,7 @@ async function createWindow() {
 	};
 
 	win = new BrowserWindow({
-		title: 'Main window',
+		title: 'Govee RGB Hub',
 		maxWidth: 700,
 		minWidth: 700,
 		maxHeight: 800,

@@ -1,7 +1,7 @@
 import { Component, createSignal } from 'solid-js';
 import { useLocation, useRoutes, NavLink, useNavigate } from 'solid-app-router';
-import TitleBar from './Common/components/titleBar/titleBar';
-import { routes } from './routes';
+import TitleBar from './components/titleBar/titleBar';
+import { routes } from './routes/routes';
 import './app.scss';
 
 const App: Component = () => {
@@ -12,19 +12,14 @@ const App: Component = () => {
 
 	const handleStartAnimation = () => {
 		setAnimation(true);
-		console.log('start animation');
 		setTimeout(() => {
 			setAnimation(false);
 		}, 500);
-		console.log('end animation');
 	};
 
 	const HomeNavigation = () => {
 		navigate('/', { replace: true });
 		handleStartAnimation();
-	};
-	const ColorNavigation = () => {
-		navigate('/colors', { replace: true });
 	};
 	const SettingsNavigation = () => {
 		handleStartAnimation();
@@ -74,7 +69,7 @@ const App: Component = () => {
 						location.pathname == '/' ? 'homeActive' : 'settingsActive'
 					} ${animation() ? 'floaterAnimation' : ''}  `}
 				/>
-				<div class="mainContainer bg-button-bg-purple p-5 ml-4		 w-124 shadow-md shadow-button-bg-purple h-128 rounded-md	">
+				<div class="mainContainer bg-button-bg-purple p-5 ml-4	absolute  shadow-md shadow-button-bg-purple h-128 	">
 					<Route />
 				</div>
 			</div>

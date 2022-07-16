@@ -1,10 +1,8 @@
 import { createSignal, createResource, For, createEffect } from 'solid-js';
 import superagent from 'superagent';
-import axios from 'axios';
 import { HexColorInput, HexColorPicker } from 'solid-colorful';
-import DeviceGrid from '@/Common/components/device/deviceGrid';
-import Device from '@/Common/components/device/device';
-import { MenuItem } from 'electron/main';
+import DeviceGrid from '../../components/device/deviceGrid';
+import Device from '../../components/device/device';
 
 const Home = () => {
 	const [data, setData] = createSignal('');
