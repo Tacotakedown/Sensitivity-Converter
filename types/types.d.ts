@@ -1,3 +1,4 @@
+export {};
 declare namespace NodeJS {
 	interface ProcessEnv {
 		NODE_ENV: 'development' | 'production';
@@ -8,4 +9,9 @@ declare namespace NodeJS {
 declare module '*.json' {
 	const value: any;
 	export default value;
+}
+declare global {
+	interface Window {
+		ipcRenderer: any;
+	}
 }

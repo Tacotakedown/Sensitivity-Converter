@@ -1,9 +1,11 @@
-import { app, shell, ipcMain } from 'electron';
+import { app, shell } from 'electron';
 import { BrowserWindow } from 'electron-acrylic-window';
-import { release, os } from 'os';
+import { release } from 'os';
 import { join } from 'path';
+import { async } from 'walkdir';
+import Electron from 'electron';
 
-import './samples/electron-store';
+const ipcMain = Electron.ipcMain;
 
 // Disable GPU Acceleration for Windows 7
 if (release().startsWith('6.1')) app.disableHardwareAcceleration();
@@ -34,10 +36,11 @@ async function createWindow() {
 		maxHeight: 800,
 		minHeight: 800,
 		titleBarStyle: 'hidden',
+		frame: false,
 		webPreferences: {
 			nodeIntegration: true,
 			contextIsolation: false,
-		},
+		}, //@ts-ignore
 		vibrancy: vibrancy,
 	});
 
@@ -61,19 +64,19 @@ async function createWindow() {
 	});
 
 	// Make all links open with the browser, not with the application
-	win.webContents.setWindowOpenHandler(({ url }) => {
-		if (url.startsWith('https:')) shell.openExternal(url);
-		return { action: 'deny' };
+	win.webContents.on('new-window', (e, url) => {
+		e.preventDefault();
+		require('electron').shell.openExternal(url);
 	});
 }
 
-ipcMain.handle('minimize-event', () => {
+ipcMain.on('minimize-event', () => {
 	win?.minimize();
 });
-ipcMain.handle('maximize-event', () => {
+ipcMain.on('maximize-event', () => {
 	win?.maximize();
 });
-ipcMain.handle('close-event', () => {
+ipcMain.on('close-event', () => {
 	app.quit();
 });
 

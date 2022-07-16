@@ -1,20 +1,22 @@
 import WindowControlButton from '../windowControlButton/windowControlButton';
 import './windowButtonGroup.scss';
+import Electron from 'electron';
 
-const WindowButtonGroup = (props) => {
-	const ipcRenderer = window.require('electron').ipcRenderer;
+const ipcRenderer = Electron.ipcRenderer;
+
+const WindowButtonGroup = (props: any) => {
 	const handleMinimize = () => {
-		ipcRenderer.invoke('minimize-event');
+		ipcRenderer.send('minimize-event');
 	};
 	const handleMaximize = () => {
-		ipcRenderer.invoke('maximize-event');
+		ipcRenderer.send('maximize-event');
 	};
 
 	const handleClose = () => {
-		ipcRenderer.invoke('close-event');
+		ipcRenderer.send('close-event');
 	};
 	return (
-		<div className="ctlBtnGroup space-x-4  flex justify-center align-center flex-row">
+		<div class="ctlBtnGroup space-x-4  flex justify-center align-center flex-row">
 			<WindowControlButton onClick={handleMinimize} color="yellow" />
 
 			<WindowControlButton onClick={handleMaximize} color="green" />

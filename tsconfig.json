@@ -11,6 +11,9 @@
 		"resolveJsonModule": true,
 		"strict": true,
 		"jsx": "preserve",
-		"jsxImportSource": "solid-js"
-	}
+		"jsxImportSource": "solid-js",
+		"typeRoots": ["./types"],
+		"declaration": true
+	},
+	"include": ["./types/index.ts"]
 }

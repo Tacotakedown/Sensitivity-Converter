@@ -5,7 +5,7 @@ import WindowButtonGroup from '../windowButtonGroup/windowButtonGroup';
 const TitleBar: Component = () => {
 	return (
 		<header>
-			<div className="drag justify-start	 align-center flex flex-row-reverse">
+			<div class="drag justify-start	 align-center flex flex-row-reverse">
 				<WindowButtonGroup />
 			</div>
 		</header>

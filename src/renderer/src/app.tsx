@@ -34,8 +34,8 @@ const App: Component = () => {
 	return (
 		<>
 			<TitleBar />
-			<div className="bg-transparent	 absolute h-128 flex justify-between items-center p-5">
-				<ul className=" flex-col z-10  h-full flex justify-between items-beginning	">
+			<div class="bg-transparent	 absolute h-128 flex justify-between items-center p-5">
+				<ul class=" flex-col z-10  h-full flex justify-between items-beginning	">
 					<li onClick={HomeNavigation}>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -70,7 +70,7 @@ const App: Component = () => {
 					</li>
 				</ul>
 				<div
-					className={`floater ${
+					class={`floater ${
 						location.pathname == '/' ? 'homeActive' : 'settingsActive'
 					} ${animation() ? 'floaterAnimation' : ''}  `}
 				/>

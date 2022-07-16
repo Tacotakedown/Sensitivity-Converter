@@ -1,4 +1,4 @@
-const WindowControlButton = (props) => {
+const WindowControlButton = (props: any) => {
 	let propColor;
 	if (props.color === 'yellow') {
 		propColor = 'bg-top-bar-yellow';
@@ -10,7 +10,7 @@ const WindowControlButton = (props) => {
 	return (
 		<div
 			style={{ backgroundColor: 'red' }}
-			className={`w-4 h-4 ${propColor} rounded-full ease-in-out hover:scale-110`}
+			class={`w-4 h-4 ${propColor} rounded-full ease-in-out hover:scale-110`}
 			onclick={props.onClick}
 		></div>
 	);

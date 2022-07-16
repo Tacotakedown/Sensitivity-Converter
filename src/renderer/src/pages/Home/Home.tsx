@@ -1,57 +1,47 @@
-import { Component, createSignal } from 'solid-js';
-import GoveeLED from '../../Common/fetch/goveeApi';
+import { createSignal, createResource, For, createEffect } from 'solid-js';
 import superagent from 'superagent';
 import axios from 'axios';
 import { HexColorInput, HexColorPicker } from 'solid-colorful';
 import DeviceGrid from '@/Common/components/device/deviceGrid';
 import Device from '@/Common/components/device/device';
+import { MenuItem } from 'electron/main';
 
 const Home = () => {
-	const [color, setColor] = createSignal('#aabbcc');
 	const [data, setData] = createSignal('');
-	// const headers = new Headers({
-	// 	'Govee-API-Key': '5d0bd033-4261-40fa-8ebe-0c3044489d8d',
-	// });
+	const [code, setCode] = createSignal('');
+	const [message, setMessage] = createSignal('');
+	const fetchDevices = () => {
+		superagent
+			.get(
+				'https://govee-proxy.herokuapp.com/https://developer-api.govee.com/v1/devices'
+			)
+			.set('Govee-API-Key', '5d0bd033-4261-40fa-8ebe-0c3044489d8d')
+			.then((res) => {
+				setData(res.body.data);
+				setCode(res.body.code);
+				setMessage(res.body.message);
+			});
+	};
 
-	// const request = new Request('https://cors-anywhere.herokuapp.com/https://developer-api.govee.com/v1/devices', {
-	// 	method: 'GET',
-	// 	headers: headers,
-	// 	mode: 'no-cors',
-	// 	cache: 'default',
-	// });
+	const [color, setColor] = createSignal('#aabbcc');
 
-	// fetch(request)
-	// 	.then((res) => setData(res.toString()))
-	// 	.catch((error) => {
-	// 		console.error(error);
-	// 	});
-	// headers: {
-	// 	'Content-Type': 'application/json',
-	// 	'Govee-API-Key': '5d0bd033-4261-40fa-8ebe-0c3044489d8d',
-	// 	'Access-Control-Allow-Origin': '*',
-	// 	'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-	// 	'Access-Control-Allow-Credentials': true,
-	// },
-
-	superagent
-		.get(
-			'https://cors-anywhere.herokuapp.com/https://developer-api.govee.com/v1/devices'
-		)
-		.set('Govee-API-Key', '5d0bd033-4261-40fa-8ebe-0c3044489d8d')
-		.then((res) => {
-			console.log(res.body.message);
-			setData(res.body.message);
-		})
-		.catch(console.error);
+	const [command, setCommand] = createSignal('');
+	const [devices] = createResource(fetchDevices);
 
 	return (
 		<>
-			<div className="text-white">
+			<div class="text-white">
 				All Devices:
 				<DeviceGrid>
 					<Device dev="1" />
-					{data()}
 				</DeviceGrid>
+				<div>
+					{message() || 'error'}
+					<br />
+					{code() || 'error'}
+					<br />
+					{data() || 'error'}
+				</div>
 			</div>
 		</>
 	);
