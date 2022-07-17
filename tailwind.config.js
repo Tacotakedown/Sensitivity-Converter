@@ -27,6 +27,14 @@ module.exports = {
 				md: '0px 0px 14px rgba( 255, 255, 255, 1)',
 				img: '0px 0px 5px rgba( 255, 255, 255, 1)',
 			},
+			keyframes: {
+				closeSpin: {
+					to: { transform: 'scale(1.1)' },
+				},
+			},
+			animation: {
+				closeSpin: 'closeSpin .5s alternate infinite',
+			},
 		},
 	},
 	plugins: [],

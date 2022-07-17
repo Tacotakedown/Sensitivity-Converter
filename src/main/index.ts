@@ -40,10 +40,11 @@ async function createWindow() {
 		webPreferences: {
 			nodeIntegration: true,
 			contextIsolation: false,
-			devTools: false,
+			// devTools: false,
 		},
 		//@ts-ignore
 		vibrancy: vibrancy,
+		icon: join(__dirname, 'build/icon.ico'),
 	});
 
 	if (app.isPackaged) {

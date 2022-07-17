@@ -1,0 +1,10 @@
+.powerButton {
+	filter: drop-shadow(0 0 10px rgba(0, 0, 0, 1));
+	transition: ease-in-out;
+}
+.powerButton:hover {
+	filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+	transition: ease-in-out;
+	transform: scale(1.1);
+	transition-duration: 100ms;
+}
