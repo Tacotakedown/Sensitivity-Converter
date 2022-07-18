@@ -24,7 +24,7 @@ const Home = () => {
 	};
 
 	const [color, setColor] = createSignal('#aabbcc');
-	const [deviceMenu, setDeviceMenu] = createStore({ state: true });
+	const [deviceMenu, setDeviceMenu] = createStore({ state: false });
 	// const [deviceMenu, setDeviceMenu] = createSignal(true);
 	const [command, setCommand] = createSignal('');
 	const [devices] = createResource(fetchDevices);

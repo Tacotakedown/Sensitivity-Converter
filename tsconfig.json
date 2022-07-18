@@ -17,8 +17,9 @@
 		"declaration": true
 	},
 	"include": [
-		"@types/global/index.d.ts",
-		"@types/global/index.d.ts",
-		"@types/global/images.d.ts"
+		"./src/index.d.ts",
+		"@types/global/types.d.ts",
+		"src/**/*.ts",
+		"src/**/*.tsx"
 	]
 }

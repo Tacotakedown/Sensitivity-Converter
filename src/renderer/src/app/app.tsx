@@ -1,4 +1,4 @@
-import { Component, createSignal } from 'solid-js';
+import { Component, createSignal, Show } from 'solid-js';
 import { useLocation, useRoutes, NavLink, useNavigate } from 'solid-app-router';
 import TitleBar from './components/titleBar/titleBar';
 import { routes } from './routes/routes';
