@@ -1,7 +1,7 @@
 import { createStore } from 'solid-js/store';
 import './onOffButton.scss';
 
-export const OnOffButton = () => {
+export const OnOffButton = (props: any) => {
 	let [isOn, setIsOn] = createStore({ state: false });
 	let onOffColor;
 	if (isOn.state == false) {
@@ -10,13 +10,14 @@ export const OnOffButton = () => {
 		onOffColor == 'fill-green-400';
 	}
 
+	let onCLick: any = props.onClick;
 	const handleClick = () => {
 		console.log(isOn.state);
 		setIsOn((isOn) => ({ state: !isOn.state }));
 	};
 
 	return (
-		<div>
+		<div onclick={onCLick}>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				width="30"
