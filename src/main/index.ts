@@ -96,16 +96,23 @@ const client = new rpc.Client({ transport: 'ipc' });
 
 client.login({ clientId: settings.ClientID }).catch(console.error);
 
-ipcMain.on('discord-rpc', (_, arg: boolean) => {
-	console.log(arg);
-	if (arg) {
-		client.setActivity({
+client.on('ready', () => {
+	client.request('SET_ACTIVITY', {
+		pid: process.pid,
+		activity: {
+			details: settings.Details,
 			state: settings.State,
-			largeImageKey: settings.LargeImage,
-		});
-	} else {
-		client.clearActivity();
-	}
+			timestamps: {
+				start: Date.now(),
+			},
+			assets: {
+				large_image: settings.LargeImage,
+				large_text: settings.LargeImageText,
+				small_image: settings.SmallImage,
+				small_text: settings.SmallImageText,
+			},
+		},
+	});
 });
 
 ipcMain.on('minimize-event', () => {
