@@ -47,7 +47,7 @@ const createWindow = async () => {
 		webPreferences: {
 			nodeIntegration: true,
 			contextIsolation: false,
-			// devTools: false,
+			devTools: false,
 		},
 		//@ts-ignore
 		vibrancy: vibrancy,
