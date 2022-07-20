@@ -1,4 +1,5 @@
 Simple Electron app to control my RGB lights written in SolidJS
+
 ## Installation
 
 ```bash
@@ -10,3 +11,4 @@ npm start
 npm run build
 ```
 
+! [] ()
