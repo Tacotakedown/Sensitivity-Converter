@@ -7,6 +7,7 @@ import { async } from 'walkdir';
 import rpc from 'discord-rpc';
 import settings from './discord-rpc/settings.json';
 import ElectronStore from 'electron-store';
+import request from 'superagent';
 
 ElectronStore.initRenderer();
 
@@ -73,7 +74,6 @@ const createWindow = async () => {
 				// win?.focus();
 			},
 		},
-		{ label: 'Turn lights off' },
 		{ label: 'Close Govee Home', click: () => app.quit() },
 	]);
 	tray.setContextMenu(contextMenu);
@@ -97,6 +97,7 @@ const client = new rpc.Client({ transport: 'ipc' });
 client.login({ clientId: settings.ClientID }).catch(console.error);
 
 ipcMain.on('discord-rpc', (_, arg: boolean) => {
+	console.log(arg);
 	if (arg) {
 		client.setActivity({
 			state: settings.State,

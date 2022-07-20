@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 const ipcRenderer = Electron.ipcRenderer;
 
 const Settings: Component = () => {
-	const [rpcState, setRpcState] = createSignal(false);
+	const [rpcState, setRpcState] = createSignal(true);
 
 	const handleDiscordOffClick = () => {
 		setRpcState(false);
