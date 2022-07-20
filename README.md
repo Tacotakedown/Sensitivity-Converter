@@ -11,4 +11,4 @@ npm start
 npm run build
 ```
 
-! [] ()
+<img src="./img/govee app.png" alt="app image">
