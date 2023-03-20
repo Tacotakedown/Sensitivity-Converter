@@ -1,0 +1,138 @@
+{
+	"apex": {
+		"name": "Apex Legends",
+		"slug": "apex-legends",
+		"vfov": 73.74,
+		"type": "normal",
+		"hfov": 106.26,
+		"divisor": 20.455
+	},
+	"borderlands": {
+		"name": "Borderlands",
+		"slug": "borderlands",
+		"vfov": 58.72,
+		"hfov": 90,
+		"type": "normal",
+		"divisor": 81.818
+	},
+	"csgo": {
+		"name": "CS:GO",
+		"slug": "cs-go",
+		"vfov": 73.74,
+		"hfov": 106.26,
+		"type": "normal",
+		"divisor": 20.455
+	},
+	"destiny": {
+		"name": "Destiny 2",
+		"slug": "destiny-2",
+		"vfov": 51.8,
+		"hfov": 81.6,
+		"type": "normal",
+		"divisor": 68.182
+	},
+	"fortnite": {
+		"name": "Fortnite",
+		"slug": "fortnite",
+		"vfov": 56,
+		"hfov": 80,
+		"type": "normal",
+		"divisor": 0.103145
+	},
+	"overwatch": {
+		"name": "Overwatch",
+		"slug": "overwatch",
+		"vfov": 70.53,
+		"hfov": 103,
+		"type": "normal",
+		"divisor": 68.182
+	},
+	"quake": {
+		"name": "Quake Live",
+		"slug": "quake-live",
+		"vfov": 83.58,
+		"hfov": 115.63,
+		"type": "normal",
+		"divisor": 20.455
+	},
+	"teamfortress2": {
+		"name": "Team Fortress 2",
+		"slug": "team-fortress-2",
+		"vfov": 59.84,
+		"hfov": 91.31,
+		"type": "normal",
+		"divisor": 20.455
+	},
+	"titanfall": {
+		"name": "Titanfall 2",
+		"slug": "titanfall-2",
+		"vfov": 55.41,
+		"hfov": 86.07,
+		"type": "normal",
+		"divisor": 20.455
+	},
+	"raibow6siege": {
+		"name": "Tom Clancy's Rainbow 6: Siege",
+		"slug": "rainbow-6-siege",
+		"vfov": 60,
+		"hfov": 91.49,
+		"type": "normal",
+		"divisor": 10
+	},
+	"darwinproject": {
+		"name": "Darwin Project",
+		"slug": "darwin-project",
+		"vfov": 58.72,
+		"hfov": 90,
+		"type": "linear",
+		"divisor": 2.977076510866329
+	},
+	"doometernal": {
+		"name": "Doom Eternal",
+		"slug": "doom-eternal",
+		"vfov": 58.715507,
+		"hfov": 90,
+		"type": "normal",
+		"divisor": 0.0190985485103132
+	},
+	"eft": {
+		"name": "Escape from Tarkov",
+		"slug": "escape-from-tarkov",
+		"vfov": 50,
+		"hfov": 79.316879,
+		"type": "normal",
+		"divisor": 0.458366
+	},
+	"halo": {
+		"name": "Halo",
+		"slug": "halo",
+		"vfov": 49.2,
+		"hfov": 78.28,
+		"type": "normal",
+		"divisor": 0.3846153846
+	},
+	"huntshowdown": {
+		"name": "Hunt: Showdown",
+		"slug": "hunt-showdown",
+		"vfov": 55,
+		"hfov": 85.56559,
+		"type": "normal",
+		"divisor": 1.333333
+	},
+	"roblox": {
+		"name": "Roblox",
+		"slug": "roblox",
+		"vfov": 80,
+		"hfov": 112.327252,
+		"type": "normal",
+		"divisor": 0.144
+	},
+	"valorant": {
+		"name": "Valorant",
+		"slug": "valorant",
+		"vfov": 70.53,
+		"hfov": 103,
+		"type": "normal",
+		"divisor": 0.819
+	}
+}

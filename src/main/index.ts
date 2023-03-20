@@ -1,6 +1,6 @@
 import Electron from 'electron';
-import { app, shell, Tray, Menu, nativeImage } from 'electron';
-import { BrowserWindow } from 'electron-acrylic-window';
+import { app, shell, Tray, Menu, nativeImage, BrowserWindow } from 'electron';
+
 import { release } from 'os';
 import { join } from 'path';
 import { async } from 'walkdir';
@@ -28,29 +28,20 @@ if (!app.requestSingleInstanceLock()) {
 let win: BrowserWindow | null = null;
 
 const createWindow = async () => {
-	let vibrancy = {
-		theme: '#1b0c6699',
-		effect: 'acrylic',
-		useCustomWindowRefreshMethod: true,
-		disableOnBlur: false,
-		debug: false,
-	};
-
 	win = new BrowserWindow({
 		title: 'Govee RGB Hub',
-		maxWidth: 700,
-		minWidth: 700,
-		maxHeight: 800,
-		minHeight: 800,
-		titleBarStyle: 'hidden',
-		frame: false,
+		maxWidth: 900,
+		minWidth: 900,
+		maxHeight: 500,
+		minHeight: 500,
+		frame: true,
+		autoHideMenuBar: true,
 		webPreferences: {
 			nodeIntegration: true,
 			contextIsolation: false,
 			devTools: false,
 		},
 		//@ts-ignore
-		vibrancy: vibrancy,
 		icon: join(__dirname, 'build/icon.ico'),
 	});
 
@@ -64,19 +55,7 @@ const createWindow = async () => {
 		win.webContents.openDevTools();
 	}
 	const iconPath = join(__dirname, 'test.ico');
-	tray = new Tray(nativeImage.createFromPath(iconPath));
-	tray.setToolTip('Govee Home');
-	const contextMenu = Menu.buildFromTemplate([
-		{
-			label: 'restore window',
-			click: () => {
-				win?.show();
-				// win?.focus();
-			},
-		},
-		{ label: 'Close Govee Home', click: () => app.quit() },
-	]);
-	tray.setContextMenu(contextMenu);
+
 	// Test active push message to Renderer-process
 	win.webContents.on('did-finish-load', () => {
 		win?.webContents.send(
@@ -92,29 +71,6 @@ const createWindow = async () => {
 	});
 };
 
-const client = new rpc.Client({ transport: 'ipc' });
-
-client.login({ clientId: settings.ClientID }).catch(console.error);
-
-client.on('ready', () => {
-	client.request('SET_ACTIVITY', {
-		pid: process.pid,
-		activity: {
-			details: settings.Details,
-			state: settings.State,
-			timestamps: {
-				start: Date.now(),
-			},
-			assets: {
-				large_image: settings.LargeImage,
-				large_text: settings.LargeImageText,
-				small_image: settings.SmallImage,
-				small_text: settings.SmallImageText,
-			},
-		},
-	});
-});
-
 ipcMain.on('minimize-event', () => {
 	win?.minimize();
 });
@@ -122,7 +78,7 @@ ipcMain.on('maximize-event', () => {
 	win?.maximize();
 });
 ipcMain.on('close-event', () => {
-	win?.hide();
+	win?.close();
 });
 
 app.whenReady().then(createWindow);

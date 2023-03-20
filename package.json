@@ -1,9 +1,9 @@
 {
-	"name": "covee-rgb-controller",
-	"productName": "Govee RGB Controller",
+	"name": "Sens-Converter",
+	"productName": "Taco's Sens Converter",
 	"private": true,
 	"version": "0.0.1",
-	"description": "Simple app for controlling Govee RGB lights",
+	"description": "Converts Sensitivity from one game to another",
 	"author": "Cameron Griego",
 	"license": "GNU 3.0",
 	"main": "dist/main/index.cjs",
